@@ -35,9 +35,7 @@ src/
 ├── index.js                # React entry point
 └── index.css               # Global styles
 
-public/
-└── index.html              # HTML template
-```
+
 
 ## Getting Started
 
@@ -149,7 +147,7 @@ Works in all modern browsers that support:
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source.
 <<<<<<< HEAD
 # Taskmate (MERN)
 
@@ -162,16 +160,10 @@ Taskmate is a MERN app for scheduling tasks with:
 
 ## Tech Stack
 - Frontend: React (Vite) + CSS only
-- Backend: Node.js + Express + MongoDB (Mongoose)
-- Auth: JWT + bcryptjs
+
 
 ## Project Structure
 - `client/` - React UI
-- `server/` - Express API (MVC pattern)
-  - `src/models/` - Mongoose models
-  - `src/controllers/` - request handlers (business logic)
-  - `src/routes/` - route definitions
-  - `src/middleware/` - auth middleware
 
 ## Features (What you can do)
 - Create an account and log in
@@ -185,22 +177,7 @@ Taskmate is a MERN app for scheduling tasks with:
 
 ## Local Setup
 
-### 1) Server
-1. Go to `server/`
-2. Copy env:
-   - Create `server/.env` from `server/.env.example`
-3. Install dependencies:
-   - `npm install`
-4. Start dev server:
-   - `npm run dev`
-
-Expected server env vars:
-- `PORT` (default: `5000`)
-- `MONGO_URI` (MongoDB connection string)
-- `JWT_SECRET` (any strong random string)
-- `CORS_ORIGIN` (your React URL, example: `http://localhost:5173`)
-
-### 2) Client
+### 1) Client
 1. Go to `client/`
 2. Create `client/.env`:
    - `VITE_API_URL=http://localhost:5000`
@@ -210,9 +187,6 @@ Expected server env vars:
    - `npm run dev`
 
 ## API Summary
-Auth:
-- `POST /api/auth/register`
-- `POST /api/auth/login`
 
 Tasks (requires Authorization header `Bearer <token>`):
 - `GET /api/tasks`
@@ -223,24 +197,11 @@ Tasks (requires Authorization header `Bearer <token>`):
 ## Deployment (Free-friendly)
 You can deploy in a typical free-friendly way:
 - Frontend: Netlify (build from `client/`)
-- Backend: Render (Node app from `server/`)
-- Database: MongoDB Atlas free tier
 
-General steps:
-1. Render (server):
-   - Build command: `npm install && npm start`
-   - Environment variables: `MONGO_URI`, `JWT_SECRET`, `PORT`, `CORS_ORIGIN`
-2. Netlify (client):
-   - Build command: `npm install && npm run build`
-   - Publish directory: `client/dist`
-   - Environment variable: `VITE_API_URL` pointing to your Render backend URL
-3. MongoDB Atlas:
-   - Put the connection string into `MONGO_URI` on Render.
 
-Note: free tiers can “sleep” after inactivity—your app should still work when they wake up.
 
 ## Running Notes
-- Tasks belong to the logged-in user (`createdBy`), so each user sees only their tasks.
+- Tasks belong to the user, so user sees only their tasks.
 - `responsiblePerson` is stored as a plain string (name), which is simpler for learning.
 
 =======
