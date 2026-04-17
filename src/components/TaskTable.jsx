@@ -29,18 +29,24 @@ function TaskTable({ tasks, onEdit, onMarkAsDone }) {
                   <td>{task.taskResponsiblePerson}</td>
                   <td>{formatDate(task.taskETA)}</td>
                   <td>
-                    <i
-                      className="bi bi-check-circle-fill text-success action-icon"
+                    <button
+                      type="button"
+                      className="btn p-0 text-success action-icon"
                       onClick={() => onMarkAsDone(index)}
-                      style={{ cursor: 'pointer' }}
+                      aria-label="Mark task as done"
                       title="Mark as Done"
-                    ></i>
-                    <i
-                      className="bi bi-pencil-square text-primary action-icon ms-3"
+                    >
+                      <i className="bi bi-check-circle-fill"></i>
+                    </button>
+                    <button
+                      type="button"
+                      className="btn p-0 text-primary action-icon ms-3"
                       onClick={() => onEdit(index)}
-                      style={{ cursor: 'pointer' }}
+                      aria-label="Edit task"
                       title="Edit Task"
-                    ></i>
+                    >
+                      <i className="bi bi-pencil-square"></i>
+                    </button>
                   </td>
                 </tr>
               ))
